@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Log Prolific ID when the user joins (using GET request)
     if (prolificID) {
-        fetch(`https://script.google.com/macros/s/AKfycbyrv4dPRzKD9GMh2Z6vMnhNVw0lIDSO1W_BQzXWwL_2fqVIF1SC_BgHMX3OrxWw_e07EA/exec?prolificID=${prolificID}&event=joined`, {
+        fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?prolificID=${prolificID}&event=joined`, {
             method: 'GET'
         })
             .then(response => response.json())
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to handle CAPTCHA completion
     function onCaptchaCompleted(token) {
-        fetch(`https://script.google.com/macros/s/AKfycbyrv4dPRzKD9GMh2Z6vMnhNVw0lIDSO1W_BQzXWwL_2fqVIF1SC_BgHMX3OrxWw_e07EA/exec?prolificID=${prolificID}&event=captcha_completed&token=${token}`, {
+        fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?prolificID=${prolificID}&event=captcha_completed&token=${token}`, {
             method: 'GET'
         })
             .then(response => response.json())
