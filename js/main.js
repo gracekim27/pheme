@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.textContent = "Processing...";
 
         try {
-            const response = await fetch(`https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?` +
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?` +
                 new URLSearchParams({
                     name: name,
                     email: email,
