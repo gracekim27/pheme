@@ -1,26 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const prolificID = urlParams.get('prolificID');
+    const form = document.getElementById('subscriptionForm'); // Ensure this matches your form ID
 
-    // Log Prolific ID when the user joins (using GET request)
-    if (prolificID) {
-        fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?prolificID=${prolificID}&event=joined`, {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => console.log('Prolific ID logged for join:', data))
-            .catch(error => console.error('Error logging join event:', error));
-    }
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
 
-    // Function to handle CAPTCHA completion
-    function onCaptchaCompleted(token) {
-        fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?prolificID=${prolificID}&event=captcha_completed&token=${token}`, {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('CAPTCHA completed and logged:', data);
-                document.getElementById('placeholderImage').style.display = 'block';
-            })
-            .catch(error => console.error('Error logging CAPTCHA completion:', error));
-    }})
+        // Extract form data
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const keyword = document.getElementById('keyword').value.trim();
+        const time = document.getElementById('time').value.trim();
+
+        // Validate inputs
+        if (!name || !email || !keyword || !time) {
+            alert('Please fill in all fields!');
+            return;
+        }
+
+        try {
+            // Send data to Google Apps Script Web App with submit=true
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?` +
+                new URLSearchParams({
+                    name: name,
+                    email: email,
+                    keyword: keyword,
+                    period: time,
+                    submit: "true"
+                }), {
+                method: 'GET'
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                alert(data.message);
+                form.reset(); // Reset the form after submission
+            } else {
+                alert(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error logging subscription:', error);
+            alert('An error occurred while submitting your data. Please try again.');
+        }
+    });
+});
