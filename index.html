@@ -5,30 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Subscription</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
-    <script defer src="js/main.js"></script> <!-- Link to external JavaScript file -->
 </head>
 <body>
 
-<h2>Subscribe to News Alerts</h2>
+<div class="video-background">
+    <video autoplay loop muted playsinline>
+        <source src="background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
-<form id="subscriptionForm">
-    <label for="name">Search Name:</label>
-    <input type="text" id="name" name="name" required>
+<!-- Banner Header -->
+<header class="banner">
+    <h1>Pheme Clips Kit</h1>
+</header>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+<!-- Form Section -->
+<div class="form-container">
+    <h2>Subscribe to News Alerts</h2>
 
-    <label for="keyword">Keyword:</label>
-    <input type="text" id="keyword" name="keyword">
+    <form id="subscriptionForm">
+        <label for="name">Search Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="time">Time Period (days):</label>
-    <input type="number" id="time" name="time" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-    <button type="submit">Subscribe</button>
-</form>
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword">
 
-<script src="js/main.js"></script>
+        <label for="time">Time Period:</label>
+        <select id="time" name="time" required>
+            <option value="24h">24 hours</option>
+            <option value="7d">7 days</option>
+        </select>
 
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+<script defer src="js/main.js"></script>
 </body>
 </html>
-
