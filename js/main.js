@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('subscriptionForm');
-    const submitButton = form.querySelector('button');
+    const form = document.getElementById('subscriptionForm'); // Ensure this matches your form ID
 
     form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent default form submission behavior
 
         // Extract form data
         const name = document.getElementById('name').value.trim();
@@ -11,16 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const keyword = document.getElementById('keyword').value.trim();
         const time = document.getElementById('time').value.trim();
 
+        // Validate inputs
         if (!name || !email || !keyword || !time) {
             alert('Please fill in all fields!');
             return;
         }
 
-        // Disable button & show "Processing..."
-        submitButton.disabled = true;
-        submitButton.textContent = "Processing...";
-
         try {
+            // Send data to Google Apps Script Web App with submit=true
             const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?` +
                 new URLSearchParams({
                     name: name,
@@ -34,16 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            alert(data.message); // Show success message
-            form.reset(); // Reset the form
-
+            if (data.status === 'success') {
+                alert(data.message);
+                form.reset(); // Reset the form after submission
+            } else {
+                alert(`Error: ${data.message}`);
+            }
         } catch (error) {
             console.error('Error logging subscription:', error);
-            alert('An error occurred while submitting your data.');
+            alert('An error occurred while submitting your data. Please try again.');
         }
-
-        // Restore button after request completes
-        submitButton.disabled = false;
-        submitButton.textContent = "Subscribe";
     });
 });
