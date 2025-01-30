@@ -1,38 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('subscriptionForm'); // Ensure your form has this ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const prolificID = urlParams.get('prolificID');
 
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission behavior
+    // Log Prolific ID when the user joins (using GET request)
+    if (prolificID) {
+        fetch(`https://script.google.com/macros/s/AKfycbyrv4dPRzKD9GMh2Z6vMnhNVw0lIDSO1W_BQzXWwL_2fqVIF1SC_BgHMX3OrxWw_e07EA/exec?prolificID=${prolificID}&event=joined`, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => console.log('Prolific ID logged for join:', data))
+            .catch(error => console.error('Error logging join event:', error));
+    }
 
-        // Extract form data
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const keyword = document.getElementById('keyword').value.trim();
-        const time = document.getElementById('time').value.trim();
+    // Function to handle CAPTCHA completion
+    function onCaptchaCompleted(token) {
+        fetch(`https://script.google.com/macros/s/AKfycbyrv4dPRzKD9GMh2Z6vMnhNVw0lIDSO1W_BQzXWwL_2fqVIF1SC_BgHMX3OrxWw_e07EA/exec?prolificID=${prolificID}&event=captcha_completed&token=${token}`, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('CAPTCHA completed and logged:', data);
+                document.getElementById('placeholderImage').style.display = 'block';
+            })
+            .catch(error => console.error('Error logging CAPTCHA completion:', error));
+    }
 
-        // Validate inputs
-        if (!name || !email || !keyword || !time) {
-            alert('Please fill in all fields!');
-            return;
-        }
+    // Ensure CAPTCHA is reset and rendered on every page load
+    window.onloadCallback = function() {
+        // Render CAPTCHA and ensure it runs every time
+        const captchaWidgetId = grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LfJzF4qAAAAALXCzt0YbG4tZirZYeOewOlFj9ov',
+            'callback': onCaptchaCompleted
+        });
 
-        try {
-            // Send data to Google Apps Script Web App with `submit=true`
-            const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&keyword=${encodeURIComponent(keyword)}&period=${encodeURIComponent(time)}&submit=true`, {
-                method: 'GET'
-            });
+        // Force reCAPTCHA reset to ensure the user solves it every time
+        grecaptcha.reset(captchaWidgetId);
+    };
+});
 
-            const data = await response.json();
+// Get elements
+const popup = document.getElementById('popup');
+const closeBtn = document.querySelector('.close-btn');
 
-            if (data.status === 'success') {
-                alert(data.message);
-                form.reset(); // Reset the form after submission
-            } else {
-                alert(`Error: ${data.message}`);
-            }
-        } catch (error) {
-            console.error('Error logging subscription:', error);
-            alert('An error occurred while submitting your data. Please try again.');
-        }
-    });
+// Show the popup when the page loads
+window.onload = function() {
+    popup.style.display = 'flex'; // Show the popup
+};
+
+// Close the popup when the close button is clicked
+closeBtn.addEventListener('click', function() {
+    popup.style.display = 'none'; // Hide the popup
+});
+
+// Close the popup when the user clicks outside the popup content
+window.addEventListener('click', function(event) {
+    if (event.target === popup) {
+        popup.style.display = 'none'; // Hide the popup
+    }
 });
