@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Send data to Google Apps Script Web App
-            const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&keyword=${encodeURIComponent(keyword)}&time=${encodeURIComponent(time)}`, {
+            // Send data to Google Apps Script Web App with `submit=true`
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbw_pwNQcc6Zq7qWW2Go4HX9EEUAqQXLjEj6fQ-0amZWG6bb_XlJ5ioqb-bb3y6jpm_UDw/exec?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&keyword=${encodeURIComponent(keyword)}&period=${encodeURIComponent(time)}&submit=true`, {
                 method: 'GET'
             });
 
             const data = await response.json();
 
             if (data.status === 'success') {
-                alert('Thank you for subscribing! Your data has been logged.');
+                alert(data.message);
                 form.reset(); // Reset the form after submission
             } else {
-                alert(`An error occurred: ${data.message}`);
+                alert(`Error: ${data.message}`);
             }
         } catch (error) {
             console.error('Error logging subscription:', error);
