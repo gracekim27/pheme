@@ -36,13 +36,22 @@ body {
     color: #032778;
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+}
+
+.logo {
+    height: 50px; /* Adjust size as needed */
+    vertical-align: middle;
+    margin-left: 1.5em;
 }
 
 .banner h1 {
     margin: 0;
     font-size: 2rem;
     text-align: left;
-    padding-left: 1em;
+    padding-left: 0.5em;
 }
 
 /* Centered info styling */
