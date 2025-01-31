@@ -45,15 +45,43 @@ body {
     padding-left: 1em;
 }
 
-/* Centered form styling */
-.form-container {
-    max-width: 450px;
-    margin: 20px auto;
+/* Centered info styling */
+.info-container {
+    max-width: 50vw;
+    margin: 30px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centered form styling */
+.form-container {
+    max-width: 40vw;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.file-download {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pdf-image {
+    width: 3em; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: transform 0.2s, box-shadow 0.2s; /* Add hover effects */
+}
+
+.pdf-image:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
 h2 {
@@ -90,7 +118,7 @@ button {
     background-color: #032778;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;

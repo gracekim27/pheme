@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Subscription</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -23,31 +25,64 @@
     <h1>Pheme Clips Kit</h1>
 </header>
 
-<!-- Form Section -->
-<div class="form-container">
-    <h2>Subscribe to News Alerts</h2>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+        <div class="info-container">
+            <h2>
+                About ClipsKit
+            </h2>
+            <p>
+                Pheme AI’s mission is to <strong>automate coverage analysis</strong> for public facing individuals and organizations using artificial intelligence
+            </p>
+            <p>
+                ClipsKit automates one aspect of this workstream, <strong>sending out clippings of all relevant articles</strong> to one or multiple keywords over a specified window at designated times
+            </p>
+            <p>
+                ClipsKit is currently in the beta testing phase and is available <strong>free of charge, with no expectation of future payment or use</strong>
+            </p>
+            <p>
+                Since we are still in beta testing, ClipsKits clippings are not yet complete and might have some bugs, but can still help shorten the process significantly! Download a sample below!
+            </p>
+            <div class="file-download">
+                <a href="2025-01-31%20John%20Hickenlooper%20Clips.pdf" download>
+                    <img src="download.png" alt="Download PDF" class="pdf-image">
+                </a>
+            </div>
 
-    <form id="subscriptionForm">
-        <label for="name">Search Name:</label>
-        <input type="text" id="name" name="name" required>
+        </div>
+    </div>
+    <div class="col-7">
+        <!-- Form Section -->
+        <div class="form-container">
+            <h2>Subscribe to News Alerts</h2>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+            <form id="subscriptionForm">
+                <label for="name">Search Name:</label>
+                <input type="text" id="name" name="name" required>
 
-        <label for="keyword">Keyword:</label>
-        <input type="text" id="keyword" name="keyword">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-        <label for="time">Time Period:</label>
-        <select id="time" name="time" required>
-            <option value="24h">24 hours</option>
-            <option value="7d">7 days</option>
-        </select>
+                <label for="keyword">Keyword:</label>
+                <input type="text" id="keyword" name="keyword">
 
-        <button type="submit">Subscribe</button>
-    </form>
+                <label for="time">Time Period:</label>
+                <select id="time" name="time" required>
+                    <option value="24h">24 hours</option>
+                    <option value="7d">7 days</option>
+                </select>
+
+                <button type="submit" style="border-radius: 10px; margin-top: 1em;">Subscribe</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
