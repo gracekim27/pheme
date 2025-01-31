@@ -1,9 +1,9 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Nunito Sans, serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     text-align: center;
 }
 
@@ -20,19 +20,20 @@ body {
 
 .video-background video {
     width: 100%;                /* Ensure the video spans the full width */
-    height: 110%;               /* Increase the height slightly for zoom */
+    height: 120%;               /* Increase the height slightly for zoom */
     object-fit: cover;          /* Ensures the video covers the entire area */
     position: absolute;         /* Allows precise positioning */
-    top: 5%;                   /* Adjust the top position to cut off the bottom */
+    top: -5%;                   /* Adjust the top position to cut off the bottom */
     left: 0;
 }
+
 
 
 /* Full-width banner styling */
 .banner {
     width: 100%;
-    background-color: #032778;
-    color: white;
+    background-color: #ffffff;
+    color: #032778;
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
