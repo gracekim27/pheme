@@ -1,6 +1,6 @@
 /* General body styling */
 body {
-    font-family: Nunito Sans, serif;
+    font-family: 'Nunito Sans', serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -27,77 +27,63 @@ body {
     left: 0;
 }
 
-
-
-/* Full-width banner styling */
+/* Banner styling */
 .banner {
     width: 100%;
     background-color: #ffffff;
     color: #032778;
-    padding: 20px 0;
+    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    gap: 0.1em;
+    justify-content: left;
+    gap: 0.5em;
 }
 
 .logo {
-    height: 60px; /* Adjust size as needed */
+    height: 50px;
+    width: 50px;
     vertical-align: middle;
-    margin-left: 1.5em;
 }
 
 .banner h1 {
     margin: 0;
     font-size: 2rem;
     text-align: left;
-    padding-left: 0.5em;
 }
 
-/* Centered info styling */
-.info-container {
-    max-width: 50vw;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Centered form styling */
+/* Centered content styling */
+.info-container,
 .form-container {
-    max-width: 40vw;
-    margin: 30px auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* File download styling */
 .file-download {
     text-align: center;
     margin-top: 20px;
 }
 
 .pdf-image {
-    width: 3em; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Show a pointer cursor on hover */
-    transition: transform 0.2s, box-shadow 0.2s; /* Add hover effects */
+    width: 3em;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .pdf-image:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
+/* Input fields and buttons */
 label {
     font-weight: bold;
     display: block;
@@ -136,4 +122,22 @@ button {
 
 button:hover {
     background-color: #032778;
+}
+
+/* Responsive fixes */
+@media screen and (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .info-container, .form-container {
+        max-width: 90%;
+        padding: 15px;
+    }
 }
