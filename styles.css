@@ -30,19 +30,19 @@ body {
 /* Banner styling */
 .banner {
     width: 100%;
-    background-color: #ffffff;
-    color: #032778;
-    padding: 15px;
+    background-color: #032778;
+    color: #ffffff;
+    padding: 15px 15px 15px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: left;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
+    height: 55px;
+    width: 55px;
     vertical-align: middle;
 }
 
