@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const keyword = document.getElementById('keyword').value.trim();
         const time = document.getElementById('time').value.trim();
 
-        if (!name || !email || !keyword || !time) {
-            alert('Please fill in all fields!');
+        if (!name || !email || !time) {
+            alert('Please fill in all mandatory fields!');
             return;
         }
 
