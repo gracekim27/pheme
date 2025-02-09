@@ -141,3 +141,8 @@ button:hover {
         padding: 15px;
     }
 }
+
+
+::placeholder{
+    font-style: italic;
+}
