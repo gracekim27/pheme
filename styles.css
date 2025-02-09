@@ -26,14 +26,16 @@ body {
 }
 
 .video-background video {
-    width: 100%; /* Cover the entire width */
-    height: 120%; /* Extend height slightly for zoom */
-    object-fit: cover; /* Ensure the video covers the entire area */
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
     position: absolute;
-    top: -5%; /* Adjust positioning */
+    top: -5%;
     left: 0;
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Simulates opacity */
 }
+
 
 
 
