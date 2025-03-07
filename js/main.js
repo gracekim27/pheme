@@ -48,13 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu);
-});
-
 function toggleMenu() {
-    console.log("toggleMenu() called");
     document.querySelector('.nav-links').classList.toggle('active');
 }
