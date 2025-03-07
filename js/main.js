@@ -47,3 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.textContent = "Subscribe";
     });
 });
+
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('show');
+}

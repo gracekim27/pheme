@@ -12,70 +12,69 @@
 </head>
 <body>
 
-<div class="video-background">
-    <video autoplay loop muted playsinline>
-        <source src="background-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
 <header class="banner">
-    <img src="Pwhite.png" alt="Pheme Clips Kit Logo" class="logo">
-    <h1>ClipsKit</h1>
+    <a href="index.html" class="logo-link">
+        <img src="P.png" alt="Pheme Clips Kit Logo" class="logo">
+        <span class="site-title">ClipsKit</span>
+    </a>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
 </header>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-6 col-12">
-            <div class="info-container">
-                <h2>About ClipsKit</h2>
-                <p>
-                    ClipsKit <strong>sends out clippings of all relevant articles</strong> to one or multiple search terms over a specified window of time.
-                </p>
-                <p>
-                    ClipsKit saves <strong>up to 70% of the time</strong> typically spent on human-powered press clippings. The beta version is available <strong>free of charge, with no expectation of future payment or use.</strong>
-                </p>
-                <p>
-                    Our current user base includes several state and federal government offices. Download a sample below!
-                </p>
-                <div class="file-download">
-                    <a href="2025-01-31%20Jimmy%20Carter%20Clips.pdf" download>
-                        <img src="download.png" alt="Download PDF" class="pdf-image">
+
+<div class="content">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="text-section">
+                    <h1>Manage your <span>image</span>.</h1>
+                    <p class="subtext">
+                        ClipsKit <strong>sends out clippings of all relevant articles</strong> to one or multiple search terms over a specified window of time.
+                    </p>
+                    <p class="subtext">
+                        ClipsKit saves <strong>up to 70% of the time</strong> typically spent on human-powered press clippings. The beta version is available <strong>free of charge, with no expectation of future payment or use.</strong>
+                    </p>
+                    <a href="register.html">
+                        <button class="btn-primary">Get started →</button>
                     </a>
                 </div>
-                <p>
-                    To unsubscribe, please send an email to phemeclips@gmail.com with the email you would like to unsubscribe from.
-                </p>
             </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-12">
-            <div class="form-container">
-                <h2>Subscribe to News Alerts</h2>
-                <p>Clips are sent daily at 8AM Eastern Time. Additional customizability will be available with the next product update.</p>
-                <form id="subscriptionForm">
-                    <label for="name">Search Term:</label>
-                    <input type="text" id="name" name="name" required placeholder="E.g., 'Abraham Lincoln'">
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="E.g., 'john_doe@gmail.com'">
-
-                    <label for="keyword">Optional Keyword:</label>
-                    <input type="text" id="keyword" name="keyword" placeholder="E.g., 'President'">
-
-                    <label for="time">Time Period:</label>
-                    <select id="time" name="time" required>
-                        <option value="24h">24 hours</option>
-                        <option value="7d">7 days</option>
-                    </select>
-
-                    <button type="submit" style="border-radius: 10px; margin-top: 1em;">Subscribe</button>
-                </form>
+            <div class="col-lg-6 col-md-12">
+                <div class="image-section">
+                    <img class="computer-image" src="computerex.png" alt="Example screenshot">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="js/main.js"></script>
+<div class="content-index">
+    <h2 class="section-title">Trusted by Government Agencies</h2>
+    <p class="subtext">
+        Our current user base includes several state and federal government offices. Download a sample below!
+    </p>
+    <div class="file-download">
+        <a href="2025-03-07%20Jimmy%20Carter%20Clips.docx.pdf" download>
+            <img src="download.png" alt="Download PDF" class="pdf-image">
+        </a>
+    </div>
+    <br>
+    <p class="subtext">
+        To unsubscribe, please send an email to phemeclips@gmail.com with the email you would like to unsubscribe from.
+    </p>
+</div>
+
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+</script>
+
 </body>
 </html>
