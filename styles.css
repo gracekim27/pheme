@@ -131,7 +131,7 @@ body {
         border-radius: 5px;
     }
 
-    .nav-links.show {
+    .nav-links.active {
         display: flex;
     }
 

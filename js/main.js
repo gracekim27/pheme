@@ -50,4 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
+    console.log("toggleMenu pressed");
 }
