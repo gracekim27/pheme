@@ -6,6 +6,7 @@ body {
     text-align: center;
 }
 
+
 /* Banner styling */
 .banner {
     width: 100%;
@@ -287,6 +288,9 @@ button:hover {
     border-radius: 8px;
     margin-top: 24px;
     transition: background-color 0.2s ease;
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto !important;
 }
 
 .btn-primary:hover {
@@ -343,9 +347,8 @@ h4 {
     background-repeat: no-repeat; /* Prevent tiling */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Keep the background fixed while scrolling */
-    padding: 40px 20px; /* Add padding to prevent content overlap */
-    z-index: -1; /* Send the background behind other elements */
     position: relative;
+    pointer-events: auto;
 }
 
 
