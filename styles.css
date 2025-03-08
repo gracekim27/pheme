@@ -289,7 +289,6 @@ button:hover {
     margin-top: 24px;
     transition: background-color 0.2s ease;
     position: relative;
-    z-index: 9999;
     pointer-events: auto !important;
 }
 
@@ -341,15 +340,6 @@ h4 {
     font-size: 14px;
 }
 
-.content {
-    background-image: url("background.png");
-    background-size: cover; /* Cover the entire container without distortion */
-    background-repeat: no-repeat; /* Prevent tiling */
-    background-position: center; /* Center the background image */
-    background-attachment: fixed; /* Keep the background fixed while scrolling */
-    position: relative;
-    pointer-events: auto;
-}
 
 
 .content-index {
